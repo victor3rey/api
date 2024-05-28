@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3005;
 
 // Configurar CORS
 app.use(cors({
-    origin: 'http://localhost:8100', // El origen de tu aplicación Ionic
+    origin: process.env.CORS_ORIGIN,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -38,6 +38,10 @@ connection.connect(err => {
 const jugadoresRouter = require('./src/routes/jugadores');
 app.use('/jugadores', jugadoresRouter);
 app.use('/selecciones', seleccionesRouter);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
