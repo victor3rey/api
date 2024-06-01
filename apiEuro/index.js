@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3005;
 
 app.use(cors({
-    origin: 'https://localhost:8100', // Permite solicitudes de cualquier origen
+    origin: '*', // Permite solicitudes de cualquier origen
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 })); 
