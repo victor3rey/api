@@ -7,9 +7,8 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3005;
 
-// Configurar CORS
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: '*', // Permite solicitudes de cualquier origen
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
